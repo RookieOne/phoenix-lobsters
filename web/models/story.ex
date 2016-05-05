@@ -11,7 +11,7 @@ defmodule PhoenixLobster.Story do
       field :url, :string
       field :uncompiled_markdown, :string
       field :compiled_html, :string
-      field :is_author, :boolean
+      field :is_author, :boolean, default: false
       field :submission_date, Ecto.DateTime
       field :slug, :string
       field :votes, :integer
@@ -19,6 +19,14 @@ defmodule PhoenixLobster.Story do
       field :status, :string
 
       timestamps
+    end
+
+    @required_fields ~w( title )
+    @optional_fields ~w( url uncompiled_markdown is_author )
+
+    def changeset( model, params \\ :empty ) do
+    	model
+    	|> cast( params, @required_fields, @optional_fields )
     end
 
 end

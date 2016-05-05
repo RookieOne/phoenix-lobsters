@@ -1,12 +1,17 @@
 defmodule PhoenixLobster.Actions.CreateStory do
+	alias PhoenixLobster.Story	
+	alias HelloPhoenix.Repo
 
 	@moduledoc """
 	The CreateStory module is for handling the "create a story" action in PL.
 	"""
 
 	def execute( title ) do
-		story = %PhoenixLobster.Story{ title: title}
-		HelloPhoenix.Repo.insert(story)		
+		changeset = Story.changeset( %Story{}, %{title: title} )
+		case Repo.insert(changeset) do
+			{:ok, story} -> {:ok, story}
+			{:error, changeset} -> {:error, changeset.errors}
+		end
+		
 	end
-
 end
