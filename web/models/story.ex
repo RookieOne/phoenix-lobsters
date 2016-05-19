@@ -1,5 +1,5 @@
 defmodule PhoenixLobster.Story do
-	use HelloPhoenix.Web, :model
+	use PhoenixLobsters.Web, :model
 
     @moduledoc """
     The Story module is responsible for stories submitted to the Phoenix Lobster.

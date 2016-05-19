@@ -1,3 +1,3 @@
-defmodule HelloPhoenix.LayoutView do
-  use HelloPhoenix.Web, :view
+defmodule PhoenixLobsters.LayoutView do
+  use PhoenixLobsters.Web, :view
 end

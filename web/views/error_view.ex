@@ -1,5 +1,5 @@
-defmodule HelloPhoenix.ErrorView do
-  use HelloPhoenix.Web, :view
+defmodule PhoenixLobsters.ErrorView do
+  use PhoenixLobsters.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found"

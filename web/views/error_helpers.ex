@@ -1,4 +1,4 @@
-defmodule HelloPhoenix.ErrorHelpers do
+defmodule PhoenixLobsters.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -26,10 +26,10 @@ defmodule HelloPhoenix.ErrorHelpers do
     #
     #     dngettext "errors", "1 file", "%{count} files", count
     #
-    Gettext.dngettext(HelloPhoenix.Gettext, "errors", msg, msg, opts[:count], opts)
+    Gettext.dngettext(PhoenixLobsters.Gettext, "errors", msg, msg, opts[:count], opts)
   end
 
   def translate_error(msg) do
-    Gettext.dgettext(HelloPhoenix.Gettext, "errors", msg)
+    Gettext.dgettext(PhoenixLobsters.Gettext, "errors", msg)
   end
 end

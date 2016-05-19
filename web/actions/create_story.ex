@@ -1,6 +1,6 @@
 defmodule PhoenixLobster.Actions.CreateStory do
 	alias PhoenixLobster.Story	
-	alias HelloPhoenix.Repo
+	alias PhoenixLobsters.Repo
 
 	@moduledoc """
 	The CreateStory module is for handling the "create a story" action in PL.
