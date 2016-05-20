@@ -1,5 +1,5 @@
-defmodule HelloPhoenix.PageControllerTest do
-  use HelloPhoenix.ConnCase
+defmodule PhoenixLobsters.PageControllerTest do
+  use PhoenixLobsters.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

@@ -1,4 +1,4 @@
-defmodule HelloPhoenix.Repo.Migrations.CreateStories do
+defmodule PhoenixLobsters.Repo.Migrations.CreateStories do
   use Ecto.Migration
 
   def change do

@@ -1,5 +1,5 @@
-defmodule HelloPhoenix.StoryController.IndexTest do
-  use HelloPhoenix.ConnCase
+defmodule PhoenixLobsters.StoryController.IndexTest do
+  use PhoenixLobsters.ConnCase
 
   test "GET /api/stories", %{conn: conn} do
   	title = "this is a test story"
