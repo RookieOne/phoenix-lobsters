@@ -24,6 +24,7 @@ defmodule PhoenixLobsters.Router do
     pipe_through :api
 
     post "/register", AuthenticationController, :register
+    post "/signin", AuthenticationController, :signin
 
     get "/stories", StoryController, :index
   end

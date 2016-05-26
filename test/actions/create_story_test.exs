@@ -1,7 +1,6 @@
 defmodule PhoenixLobsterTest.Actions.CreateStory do
   use ExUnit.Case
   alias PhoenixLobster.Actions.CreateStory
-  alias PhoenixLobster.Story
 
   @tag :actions
   @tag :story

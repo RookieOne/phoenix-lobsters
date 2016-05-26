@@ -4,7 +4,7 @@ defmodule PhoenixLobster.Actions.RegisterUser do
   import Comeonin.Bcrypt
 
   @moduledoc """
-    Register user requires a non empty email and password.
+    Register user requires a non empty display name, email, and password.
     Create a user record and hashes the password.
   """
   def execute("", _, _), do: {:error, [display_name: "can't be blank"]}

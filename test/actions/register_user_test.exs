@@ -1,8 +1,6 @@
 defmodule PhoenixLobsterTest.Actions.RegisterUser do
   use ExUnit.Case
   alias PhoenixLobster.Actions.RegisterUser
-  alias PhoenixLobster.User
-  alias PhoenixLobsters.Repo
   import Comeonin.Bcrypt
 
   @tag :actions
@@ -20,12 +18,10 @@ defmodule PhoenixLobsterTest.Actions.RegisterUser do
     assert user.hashed_password != "iamironman"
 
     assert checkpw("iamironman", user.hashed_password)
-
-    assert User |> Repo.all |> Enum.count == 1
   end
 
   @tag :actions
-  @tag :story
+  @tag :user
   @tag :authentication
   test "Register user requires a password" do
     display_name = "Ironman"
@@ -38,7 +34,7 @@ defmodule PhoenixLobsterTest.Actions.RegisterUser do
   end
 
   @tag :actions
-  @tag :story
+  @tag :user
   @tag :authentication
   test "Register user requires a email" do
     display_name = "Ironman"
@@ -51,7 +47,7 @@ defmodule PhoenixLobsterTest.Actions.RegisterUser do
   end
 
   @tag :actions
-  @tag :story
+  @tag :user
   @tag :authentication
   test "Register user requires a display name" do
     display_name = ""
@@ -64,7 +60,7 @@ defmodule PhoenixLobsterTest.Actions.RegisterUser do
   end
 
   @tag :actions
-  @tag :story
+  @tag :user
   @tag :authentication
   test "Register user requires a proper display name" do
     display_name = "@ironman"
