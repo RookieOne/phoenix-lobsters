@@ -23,6 +23,8 @@ defmodule PhoenixLobsters.Router do
   scope "/api", PhoenixLobsters do
     pipe_through :api
 
+    post "/register", AuthenticationController, :register
+
     get "/stories", StoryController, :index
   end
 end
