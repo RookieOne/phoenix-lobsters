@@ -16,5 +16,5 @@ config :phoenix_lobsters, PhoenixLobsters.Repo,
   password: "postgres",
   database: "phoenix_lobsters_test",
   hostname: "localhost",
-  port: 5433,
+  port: 5432,
   pool: Ecto.Adapters.SQL.Sandbox

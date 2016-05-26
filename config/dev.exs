@@ -39,5 +39,5 @@ config :phoenix_lobsters, PhoenixLobsters.Repo,
   password: "postgres",
   database: "phoenix_lobsters_dev",
   hostname: "localhost",
-  port: 5433,
+  port: 5432,
   pool_size: 10
