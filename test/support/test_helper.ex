@@ -11,4 +11,8 @@ defmodule PhoenixLobster.TestHelper do
     }) |> Repo.insert
   end
 
+  def gen_fake_email( basename, domain \\ "example.com") do
+    basename <> :base64.encode( :crypto.strong_rand_bytes(8)) <> "@" <> domain
+  end
+
 end

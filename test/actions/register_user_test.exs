@@ -1,19 +1,21 @@
 defmodule PhoenixLobsterTest.Actions.RegisterUser do
   use ExUnit.Case
+
   alias PhoenixLobster.Actions.RegisterUser
-  import Comeonin.Bcrypt
+  import PhoenixLobster.TestHelper
+  import Comeonin.Bcrypt  
 
   @tag :actions
   @tag :user
   @tag :authentication
   test "Register user should create a user" do
     display_name = "Ironman"
-    email = "tony@stark.com"
+    email = gen_fake_email( "tony" )
     password = "iamironman"
     
     {:ok, user} = RegisterUser.execute(display_name, email, password)
     
-    assert user.email == "tony@stark.com"
+    assert user.email == email
     assert user.hashed_password != nil
     assert user.hashed_password != "iamironman"
 
@@ -25,7 +27,7 @@ defmodule PhoenixLobsterTest.Actions.RegisterUser do
   @tag :authentication
   test "Register user requires a password" do
     display_name = "Ironman"
-    email = "tony@stark.com"
+    email = gen_fake_email( "tony" )
     password = ""
     
     {:error, message} = RegisterUser.execute(display_name, email, password)
@@ -51,7 +53,7 @@ defmodule PhoenixLobsterTest.Actions.RegisterUser do
   @tag :authentication
   test "Register user requires a display name" do
     display_name = ""
-    email = "tony@stark.com"
+    email = gen_fake_email( "tony" )
     password = "iamironman"
     
     {:error, message} = RegisterUser.execute(display_name, email, password)
@@ -64,7 +66,7 @@ defmodule PhoenixLobsterTest.Actions.RegisterUser do
   @tag :authentication
   test "Register user requires a proper display name" do
     display_name = "@ironman"
-    email = "tony@stark.com"
+    email = gen_fake_email( "tony" )
     password = "iamironman"
     
     {:error, message} = RegisterUser.execute(display_name, email, password)
