@@ -18,15 +18,18 @@ defmodule PhoenixLobster.Story do
       field :score, :float
       field :status, :string
 
+      belongs_to :author, PhoenixLobsters.User, foreign_key: :user_id
+
       timestamps
     end
 
-    @required_fields ~w( title )
+    @required_fields ~w( title user_id )
     @optional_fields ~w( url uncompiled_markdown is_author )
 
     def changeset( model, params \\ :empty ) do
     	model
     	|> cast( params, @required_fields, @optional_fields )
+      |> Ecto.Changeset.assoc_constraint(:author)
     end
 
 end

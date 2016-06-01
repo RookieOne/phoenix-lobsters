@@ -1,6 +1,7 @@
 defmodule PhoenixLobster.TestHelper do
   alias PhoenixLobster.User
   alias PhoenixLobsters.Repo
+  alias PhoenixLobster.Actions.RegisterUser
   import Comeonin.Bcrypt
 
   def add_user(email, opts \\ %{}) do
@@ -13,6 +14,13 @@ defmodule PhoenixLobster.TestHelper do
 
   def gen_fake_email( basename, domain \\ "example.com") do
     basename <> :base64.encode( :crypto.strong_rand_bytes(8)) <> "@" <> domain
+  end
+
+  def gen_temp_user( display_name \\ "Ironman", password \\ "iamironman", basename \\ "tony", domain \\ "example.com") do
+    {:ok, user} = RegisterUser.execute( display_name,
+                                        gen_fake_email( basename, domain ),
+                                        password)
+    user
   end
 
 end

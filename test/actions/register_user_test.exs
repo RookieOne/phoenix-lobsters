@@ -3,7 +3,7 @@ defmodule PhoenixLobsterTest.Actions.RegisterUser do
 
   alias PhoenixLobster.Actions.RegisterUser
   import PhoenixLobster.TestHelper
-  import Comeonin.Bcrypt  
+  import Comeonin.Bcrypt
 
   @tag :actions
   @tag :user
