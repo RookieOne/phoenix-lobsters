@@ -13,6 +13,8 @@ defmodule PhoenixLobster.User do
       field :description_markdown, :string
       field :description_html, :string
 
+      has_many :stories, PhoenixLobsters.Story
+
       timestamps
     end
 

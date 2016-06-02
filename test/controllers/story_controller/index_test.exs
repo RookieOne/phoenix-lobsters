@@ -1,9 +1,11 @@
 defmodule PhoenixLobsters.StoryController.IndexTest do
   use PhoenixLobsters.ConnCase
+  import PhoenixLobster.TestHelper
 
   test "GET /api/stories", %{conn: conn} do
     title = "this is a test story"
-    PhoenixLobster.Actions.CreateStory.execute( title )
+    user = gen_temp_user()
+    PhoenixLobster.Actions.CreateStory.execute( title, user.id )
 
     conn = get conn, "/api/stories"
     assert conn.status == 200
