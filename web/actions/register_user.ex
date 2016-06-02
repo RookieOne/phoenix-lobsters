@@ -6,6 +6,9 @@ defmodule PhoenixLobster.Actions.RegisterUser do
   @moduledoc """
     Register user requires a non empty display name, email, and password.
     Create a user record and hashes the password.
+
+    Usage:
+      execute(display_name, email, password)
   """
   def execute("", _, _), do: {:error, [display_name: "can't be blank"]}
   def execute(_, "", _), do: {:error, [email: "can't be blank"]}
