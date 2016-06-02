@@ -20,7 +20,7 @@ defmodule PhoenixLobsters.Router do
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", PhoenixLobsters do
+  scope "/api", PhoenixLobsters.Api do
     pipe_through :api
 
     post "/register", AuthenticationController, :register

@@ -1,4 +1,4 @@
-defmodule PhoenixLobsters.AuthenticationView do
+defmodule PhoenixLobsters.Api.AuthenticationView do
   use PhoenixLobsters.Web, :view
 
   def render("success.json" , %{user: user}) do

@@ -1,4 +1,4 @@
-defmodule PhoenixLobsters.AuthenticationController do
+defmodule PhoenixLobsters.Api.AuthenticationController do
   use PhoenixLobsters.Web, :controller
   alias PhoenixLobster.Actions.RegisterUser
   alias PhoenixLobster.Actions.SigninUser
