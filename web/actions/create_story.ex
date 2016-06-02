@@ -4,6 +4,9 @@ defmodule PhoenixLobster.Actions.CreateStory do
 
   @moduledoc """
   The CreateStory module is for handling the "create a story" action in PL.
+
+  Usage:
+    execute( title, author )
   """
   
   def execute( title, author ) do
