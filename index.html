@@ -1,29 +1,38 @@
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='https://fonts.googleapis.com/css?family=Lobster+Two:400,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
   <title>Phoenix Lobsters</title>
   <style type="text/css">
   body {
     padding: 0px;
+    margin: 0px;
     font-size: 19px;
-    line-height: 1.4em;
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    white-space: pre-wrap;       /* css-3 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+    word-break: break-all;
+    white-space: normal;
   }
   #banner {
-    background: #e74c3c; /* For browsers that do not support gradients */
-
+    background: #e74c3c;
     color: #fff;
     text-align: center;
     padding: 4em 0em;
+    display: flex;
+    flex-direction: column;
   }
   #banner h2 span {
     text-decoration: underline;
   }
   #banner h1 {
     font-family: 'Lobster Two', Georgia, Times, serif;
-    font-size: 7em;
-    margin-bottom: 1em;
+    font-size: 6em;
   }
   #banner h2 {
     margin-bottom: 1em;
@@ -42,6 +51,8 @@
 
   main.container {
     margin: 2em 14em;
+    display: flex;
+    flex-direction: column;
   }
   main h2 {
     font-family: 'Lobster Two';
@@ -59,6 +70,22 @@
 
   strong {
     font-weight: bold;
+  }
+
+  @media (max-width: 660px) {
+    body {
+      font-size: 10px;
+    }
+    #banner {
+      padding: 1em 1em;
+    }
+    #banner h1 {
+      font-size: 3em;
+      text-align: center;
+    }
+    main.container {
+      margin: 1em 1em;
+    }
   }
   </style>
 </head>
