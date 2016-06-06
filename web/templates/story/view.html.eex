@@ -1,0 +1,12 @@
+<div class="row">
+	<a href="<%= @story.url %>">
+		<h2> <%= @story.title %> </h2>		
+	</a>
+</div>
+<div class="row">
+	<small>submitted by <%= @story.author.display_name %> ( <%= @story.submission_date %> )</small>
+</div>
+<div class="row">
+	<em> Description </em> <br>
+		<%= @story.uncompiled_markdown %>
+</div>
