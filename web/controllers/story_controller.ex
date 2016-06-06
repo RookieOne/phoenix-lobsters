@@ -32,7 +32,7 @@ defmodule PhoenixLobsters.StoryController do
                   {:ok, story } ->                    
                     conn
                     |> put_flash(:success, "Story submitted!")
-                    |> redirect(to: "/stories/#{ story |> Map.fetch!(:id) |> Integer.to_string}" )nn
+                    |> redirect(to: "/stories/#{ story |> Map.fetch!(:id) |> Integer.to_string}" )
                 end
     end  
   end

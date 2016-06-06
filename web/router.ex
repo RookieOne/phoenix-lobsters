@@ -23,7 +23,7 @@ defmodule PhoenixLobsters.Router do
     post "/signin", SessionController, :create
     get "/signout", SessionController, :destroy
     
-    get "/stories/submit", StoryController, :new
+    get "/stories/new", StoryController, :new
     post "/stories/submit", StoryController, :create
     get "/stories/:story_id", StoryController, :view
   end

@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav">
         <%= if @conn.assigns[:current_user] do %>
           <li>
-            <a href="/stories/submit">Submit story</a>
+            <a href="/stories/new">Submit story</a>
           </li>
         <% end %>
       </ul>
