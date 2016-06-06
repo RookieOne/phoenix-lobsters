@@ -8,5 +8,5 @@
 </div>
 <div class="row">
 	<em> Description </em> <br>
-		<%= @story.uncompiled_markdown %>
+		<%= raw(@story.compiled_html) %>
 </div>

@@ -14,6 +14,7 @@ defmodule PhoenixLobster.Actions.CreateStory do
                                               user_id: author,
                                               url: url,
                                               uncompiled_markdown: uncompiled_markdown,
+                                              compiled_html: Earmark.to_html( uncompiled_markdown ),
                                               is_author: is_author,
                                               submission_date: submission_date} )
     case Repo.insert(changeset) do

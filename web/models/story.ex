@@ -24,7 +24,7 @@ defmodule PhoenixLobster.Story do
     end
 
     @required_fields ~w( title user_id )
-    @optional_fields ~w( url uncompiled_markdown is_author submission_date )
+    @optional_fields ~w( url uncompiled_markdown compiled_html is_author submission_date )
 
     def changeset( model, params \\ :empty ) do
     	model
