@@ -29,16 +29,16 @@ defmodule PhoenixLobsters.StoryController do
                                       |> put_flash(:error, message)
                                       |> render("new.html")
 
-                  {:ok, story } ->                    
+                  {:ok, story } ->
                     conn
                     |> put_flash(:success, "Story submitted!")
                     |> redirect(to: "/stories/#{ story |> Map.fetch!(:id) |> Integer.to_string}" )
                 end
-    end  
+    end
   end
   def create(conn, _params) do
     conn
     |> put_flash(:error, "Title and URL are required.")
     |> render("new.html")
-  end  
+  end
 end
