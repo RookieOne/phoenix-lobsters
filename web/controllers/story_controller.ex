@@ -29,10 +29,10 @@ defmodule PhoenixLobsters.StoryController do
                                       |> put_flash(:error, message)
                                       |> render("new.html")
 
-                  {:ok, _} ->
+                  {:ok, story } ->                    
                     conn
                     |> put_flash(:success, "Story submitted!")
-                    |> redirect(to: "/")
+                    |> redirect(to: "/stories/#{ story |> Map.fetch!(:id) |> Integer.to_string}" )nn
                 end
     end  
   end
