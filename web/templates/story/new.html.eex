@@ -1,6 +1,6 @@
 <h1>Submit a story</h1>
 
-<%= form_for @conn, "/stories/submit", [name: :submit], fn f -> %>
+<%= form_for @conn, "/stories/submit", [as: :submit, name: :submit], fn f -> %>
   <div class="form-group">
     <label for="title">Title</label>
     <%= text_input f, :title, class: "form-control" %>
