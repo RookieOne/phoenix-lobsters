@@ -10,6 +10,7 @@ defmodule PhoenixLobsters.Integration.SigninTest do
     {:ok, user: user}
   end
 
+  @tag :integration
   test "As a user, I want to sign in", %{ user: user } do
     navigate_to("/signin")
 
@@ -24,6 +25,7 @@ defmodule PhoenixLobsters.Integration.SigninTest do
     assert user.display_name == element |> inner_html
   end
 
+  @tag :integration
   test "As a user, when I signin with an incorrect email I should see an error message" do
     navigate_to("/signin")
 
@@ -38,6 +40,7 @@ defmodule PhoenixLobsters.Integration.SigninTest do
     assert "Email and/or password invalid" == element |> inner_html
   end
 
+  @tag :integration
   test "As a user, when I signin with an incorrect password I should see an error message", %{ user: user } do
     navigate_to("/signin")
 
