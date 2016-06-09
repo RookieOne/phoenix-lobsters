@@ -1,0 +1,29 @@
+<h1>Submit a story</h1>
+
+<%= form_for @conn, "/stories/submit", [name: :submit], fn f -> %>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <%= text_input f, :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label for="url">URL</label>
+    <%= text_input f, :url, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label for="uncompiled_markdown">Description (optional)</label>
+    <%= textarea f, :uncompiled_markdown, class: "form-control" %>
+  </div>
+
+  <div class="checkbox">
+    <label for="is_author">
+      <%= checkbox f, :is_author, class: "" %>
+      Are you the author?
+    </label>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

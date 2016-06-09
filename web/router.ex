@@ -18,9 +18,14 @@ defmodule PhoenixLobsters.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    
     get "/signin", SessionController, :new
     post "/signin", SessionController, :create
     get "/signout", SessionController, :destroy
+    
+    get "/stories/new", StoryController, :new
+    post "/stories/submit", StoryController, :create
+    get "/stories/:story_id", StoryController, :view
   end
 
   # Other scopes may use custom stacks.

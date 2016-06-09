@@ -1,10 +1,12 @@
 <div class="row">
   <%= for story <- @stories do %>
   <div class="row">
-    <div class="col-lg-12">
-      <%= story.title %> <br>
-      <small>submitted by <%= story.author.display_name %> </small>
-    </div>
+  	<a href="/stories/<%= story.id %>">
+	    <div class="col-lg-12">
+	      <%= story.title %> <br>
+	      <small>submitted by <%= story.author.display_name %> ( <%= story.submission_date %> )</small>
+	    </div>
+	</a>
   </div>
   <% end %>
 </div>
