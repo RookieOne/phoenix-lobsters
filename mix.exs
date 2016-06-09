@@ -38,7 +38,8 @@ defmodule PhoenixLobsters.Mixfile do
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
      {:comeonin, "~> 2.4"},
-     {:earmark, "~>0.2.1"} ]
+     {:earmark, "~>0.2.1"},
+     {:hound, "~> 1.0"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.

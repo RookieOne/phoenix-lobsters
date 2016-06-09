@@ -4,10 +4,12 @@ use Mix.Config
 # you can enable the server option below.
 config :phoenix_lobsters, PhoenixLobsters.Endpoint,
   http: [port: 4001],
-  server: false
+  server: true
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :hound, driver: "phantomjs"
 
 # Configure your database
 config :phoenix_lobsters, PhoenixLobsters.Repo,

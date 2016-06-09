@@ -1,6 +1,6 @@
 <h1>Sign in</h1>
 
-<%= form_for @conn, "/signin", [name: :signin], fn f -> %>
+<%= form_for @conn, "/signin", [as: :signin, name: :signin], fn f -> %>
   <div class="form-group">
     <label for="email">Email</label>
     <%= text_input f, :email, class: "form-control" %>

@@ -37,3 +37,9 @@ Anyone!
 # Are the sessions recorded?
 
 Yes! We hope to make bit sized sessions of our work so those who can't join live can still enjoy the work.
+
+# Integration Testing
+
+To start phantomjs:
+
+  phantomjs --wd

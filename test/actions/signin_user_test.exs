@@ -8,7 +8,7 @@ defmodule PhoenixLobsterTest.Actions.SiginUserTest do
   @tag :authentication
   test "Signin user should return user" do
     email = gen_fake_email( "tony" )
-    {:ok, user} = add_user(email, password: "iamironman")
+    {:ok, user} = add_user(email: email, password: "iamironman")
 
     {:ok, signedin_user} = SigninUser.execute(email, "iamironman")
     
@@ -21,7 +21,7 @@ defmodule PhoenixLobsterTest.Actions.SiginUserTest do
   @tag :authentication
   test "Signin user should return error if password is wrong" do
     email = gen_fake_email( "tony" )
-    {:ok, _} = add_user(email, password: "iamironman")
+    {:ok, _} = add_user(email: email, password: "iamironman")
 
     {:error, message} = SigninUser.execute( email, "wrongpassword")
     

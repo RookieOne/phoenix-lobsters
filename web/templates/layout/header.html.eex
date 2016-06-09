@@ -23,7 +23,7 @@
       <ul class="nav navbar-nav navbar-right">
         <%= if @conn.assigns[:current_user] do %>
           <li>
-            <a href="/"><%= @conn.assigns[:current_user].display_name %></a>
+            <a id="header-current-user-name" href="/"><%= @conn.assigns[:current_user].display_name %></a>
           </li>
           <li>
             <a href="/signout">Sign out</a>

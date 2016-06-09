@@ -5,7 +5,7 @@ defmodule PhoenixLobsters.AuthenticationController.SigninTest do
   @tag :api
   @tag :authentication
   test "POST /api/signin - signins user", %{conn: conn} do
-    {:ok,user} = add_user("tony@stark.com", password: "iamironman")
+    {:ok,user} = add_user(email: "tony@stark.com", password: "iamironman")
     
     conn = post conn, "/api/signin", %{ email: "tony@stark.com", password: "iamironman" }
 
@@ -20,7 +20,7 @@ defmodule PhoenixLobsters.AuthenticationController.SigninTest do
   @tag :api
   @tag :authentication
   test "POST /api/signin - returns error if bad password", %{conn: conn} do
-    {:ok,_} = add_user("tony@stark.com", password: "iamironman")
+    {:ok,_} = add_user(email: "tony@stark.com", password: "iamironman")
 
     conn = post conn, "/api/signin", %{ email: "tony@stark.com", password: "badpassword" }
 
@@ -34,7 +34,7 @@ defmodule PhoenixLobsters.AuthenticationController.SigninTest do
   @tag :api
   @tag :authentication
   test "POST /api/signin - returns error if bad email", %{conn: conn} do
-    {:ok,_} = add_user("tony@stark.com", password: "iamironman")
+    {:ok,_} = add_user(email: "tony@stark.com", password: "iamironman")
 
     conn = post conn, "/api/signin", %{ email: "pepper@stark.com", password: "iamironman" }
 
@@ -48,7 +48,7 @@ defmodule PhoenixLobsters.AuthenticationController.SigninTest do
   @tag :api
   @tag :authentication
   test "POST /api/signin - returns error if missing email", %{conn: conn} do
-    {:ok,_} = add_user("tony@stark.com", password: "iamironman")
+    {:ok,_} = add_user(email: "tony@stark.com", password: "iamironman")
 
     conn = post conn, "/api/signin", %{ password: "iamironman" }
 
@@ -62,7 +62,7 @@ defmodule PhoenixLobsters.AuthenticationController.SigninTest do
   @tag :api
   @tag :authentication
   test "POST /api/signin - returns error if missing password", %{conn: conn} do
-    {:ok,_} = add_user("tony@stark.com", password: "iamironman")
+    {:ok,_} = add_user(email: "tony@stark.com", password: "iamironman")
 
     conn = post conn, "/api/signin", %{ email: "tony@stark.com" }
 
