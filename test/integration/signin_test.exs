@@ -5,10 +5,13 @@ defmodule PhoenixLobsters.Integration.SigninTest do
 
   hound_session
 
-  test "As a user, I want to sign in" do
-    navigate_to("/signin")
+  setup do
+    {:ok, user} = add_user(display_name: "Ironman", password: "password")
+    {:ok, user: user}
+  end
 
-    {:ok,user} = add_user(display_name: "Ironman", password: "password")
+  test "As a user, I want to sign in", %{ user: user } do
+    navigate_to("/signin")
 
     fill_field({:id, "signin_email"}, user.email)
     fill_field({:id, "signin_password"}, "password")
@@ -21,5 +24,32 @@ defmodule PhoenixLobsters.Integration.SigninTest do
     assert user.display_name == element |> inner_html
   end
 
+  test "As a user, when I signin with an incorrect email I should see an error message" do
+    navigate_to("/signin")
+
+    fill_field({:id, "signin_email"}, "bademail@bogus.com")
+    fill_field({:id, "signin_password"}, "password")
+    submit_element({:name, "signin"})
+
+    assert current_path == "/signin"
+
+    element = find_element(:id, "flash-error")
+
+    assert "Email and/or password invalid" == element |> inner_html
+  end
+
+  test "As a user, when I signin with an incorrect password I should see an error message", %{ user: user } do
+    navigate_to("/signin")
+
+    fill_field({:id, "signin_email"}, user.email)
+    fill_field({:id, "signin_password"}, "badpassword")
+    submit_element({:name, "signin"})
+
+    assert current_path == "/signin"
+
+    element = find_element(:id, "flash-error")
+
+    assert "Email and/or password invalid" == element |> inner_html
+  end
 
 end
