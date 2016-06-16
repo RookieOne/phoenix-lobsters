@@ -1,7 +1,7 @@
-defmodule PhoenixLobsterTest.Actions.SiginUserTest do
+defmodule PhoenixLobstersTest.Actions.SiginUserTest do
   use ExUnit.Case
-  alias PhoenixLobster.Actions.SigninUser
-  import PhoenixLobster.TestHelper
+  alias PhoenixLobsters.Actions.SigninUser
+  import PhoenixLobsters.TestHelper
 
   @tag :actions
   @tag :user

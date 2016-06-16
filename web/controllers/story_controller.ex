@@ -1,7 +1,7 @@
 defmodule PhoenixLobsters.StoryController do
   use PhoenixLobsters.Web, :controller  
-  alias PhoenixLobster.Actions.CreateStory
-  alias PhoenixLobster.Story
+  alias PhoenixLobsters.Actions.CreateStory
+  alias PhoenixLobsters.Story
 
   def new(conn, _params) do
     render conn, "new.html"

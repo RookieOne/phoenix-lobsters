@@ -1,7 +1,7 @@
 defmodule PhoenixLobsters.Integration.SigninTest do
   use ExUnit.Case
   use Hound.Helpers
-  import PhoenixLobster.TestHelper
+  import PhoenixLobsters.TestHelper
 
   hound_session
 

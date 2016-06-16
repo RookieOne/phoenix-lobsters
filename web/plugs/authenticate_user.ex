@@ -1,6 +1,6 @@
-defmodule PhoenixLobster.Plugs.AuthenticateUser do
+defmodule PhoenixLobsters.Plugs.AuthenticateUser do
   import Plug.Conn
-  alias PhoenixLobster.User
+  alias PhoenixLobsters.User
   alias PhoenixLobsters.Repo
 
   def init(options) do

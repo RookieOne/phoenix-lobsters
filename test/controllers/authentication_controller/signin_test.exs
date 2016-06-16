@@ -1,6 +1,6 @@
 defmodule PhoenixLobsters.AuthenticationController.SigninTest do
   use PhoenixLobsters.ConnCase
-  import PhoenixLobster.TestHelper
+  import PhoenixLobsters.TestHelper
 
   @tag :api
   @tag :authentication

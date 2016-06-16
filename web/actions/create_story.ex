@@ -1,5 +1,5 @@
-defmodule PhoenixLobster.Actions.CreateStory do
-  alias PhoenixLobster.Story
+defmodule PhoenixLobsters.Actions.CreateStory do
+  alias PhoenixLobsters.Story
   alias PhoenixLobsters.Repo
 
   @moduledoc """

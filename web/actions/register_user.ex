@@ -1,5 +1,5 @@
-defmodule PhoenixLobster.Actions.RegisterUser do
-  alias PhoenixLobster.User
+defmodule PhoenixLobsters.Actions.RegisterUser do
+  alias PhoenixLobsters.User
   alias PhoenixLobsters.Repo
   import Comeonin.Bcrypt
 
