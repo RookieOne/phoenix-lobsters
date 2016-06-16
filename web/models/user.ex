@@ -24,6 +24,8 @@ defmodule PhoenixLobsters.User do
     def changeset( model, params \\ :empty ) do
       model
       |> cast( params, @required_fields, @optional_fields )
+      # email must be unique
+      |> unique_constraint(:email)
       # the validation for display name was pulled from Lobster's site
       |> validate_format(:display_name, ~r/\A[A-Za-z0-9][A-Za-z0-9_-]{0,24}\Z/)
     end

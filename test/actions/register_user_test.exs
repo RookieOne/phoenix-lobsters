@@ -32,7 +32,7 @@ defmodule PhoenixLobstersTest.Actions.RegisterUser do
     
     {:error, message} = RegisterUser.execute(display_name, email, password)
 
-    assert message == [password: "can't be blank"]
+    assert message == ["Password can't be blank"]
   end
 
   @tag :actions
@@ -45,7 +45,7 @@ defmodule PhoenixLobstersTest.Actions.RegisterUser do
     
     {:error, message} = RegisterUser.execute(display_name, email, password)
 
-    assert message == [email: "can't be blank"]
+    assert message == ["Email can't be blank"]
   end
 
   @tag :actions
@@ -58,7 +58,7 @@ defmodule PhoenixLobstersTest.Actions.RegisterUser do
     
     {:error, message} = RegisterUser.execute(display_name, email, password)
 
-    assert message == [display_name: "can't be blank"]
+    assert message == ["Display name can't be blank"]
   end
 
   @tag :actions
@@ -71,6 +71,6 @@ defmodule PhoenixLobstersTest.Actions.RegisterUser do
     
     {:error, message} = RegisterUser.execute(display_name, email, password)
 
-    assert message == [display_name: "has invalid format"]
+    assert message == ["Display name has invalid format"]
   end
 end
