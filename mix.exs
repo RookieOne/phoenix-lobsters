@@ -39,6 +39,7 @@ defmodule PhoenixLobsters.Mixfile do
      {:cowboy, "~> 1.0"},
      {:comeonin, "~> 2.4"},
      {:earmark, "~>0.2.1"},
+     {:apex, "~>0.5.0"},
      {:hound, "~> 1.0"}]
   end
 
