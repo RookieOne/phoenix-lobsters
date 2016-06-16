@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav">
         <%= if @conn.assigns[:current_user] do %>
           <li>
-            
+            <a id="header-submit-story" href="/stories/new">Submit story</a>
           </li>
         <% end %>
       </ul>
@@ -40,4 +40,3 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<a id="header-submit-story" href="/stories/new">Submit story</a>

@@ -6,6 +6,7 @@ defmodule PhoenixLobsters.Integration.SubmitStoryTest do
   hound_session
 
   setup do
+    current_window_handle |> maximize_window
     {:ok, user} = login_user()
     {:ok, user: user}
   end
@@ -17,10 +18,8 @@ defmodule PhoenixLobsters.Integration.SubmitStoryTest do
     test_url = "http://www.google.com/"
     test_description = "# ZOMG"
 
-
     # navigate to the story submission page
-    element = find_element(:id, "header-submit-story")    
-    click( element )
+    click({:id, "header-submit-story"})
     assert current_path == "/stories/new"
 
     # we fill in the form
@@ -32,17 +31,10 @@ defmodule PhoenixLobsters.Integration.SubmitStoryTest do
     # and we check to make sure the page is correctly formed
     assert Regex.match?( ~r/^\/stories\/\d+$/u,  current_path )
 
-    rendered_title = find_element(:id, "story-view-title")
-    assert test_title == rendered_title |> visible_text
-
-    rendered_url = rendered_title |> attribute_value( :href )
-    assert rendered_url == test_url
-
-    rendered_author = find_element(:id, "story-view-author")
-    assert user.display_name == rendered_author |> visible_text
-
-    rendered_description = find_element(:id, "story-view-description")
-    assert "<h1>ZOMG</h1>" == rendered_description |> inner_html |> String.strip
-
+    assert test_title == visible_text({:id, "story-view-title"})
+    assert test_url == attribute_value({:id, "story-view-title"}, :href ) 
+    assert user.display_name == visible_text({:id, "story-view-author"})
+    assert "<h1>ZOMG</h1>" == inner_html({:id, "story-view-description"}) |> String.strip
   end
+
 end
