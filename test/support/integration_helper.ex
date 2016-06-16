@@ -1,5 +1,5 @@
-defmodule PhoenixLobster.IntegrationHelper do
-  import PhoenixLobster.TestHelper
+defmodule PhoenixLobsters.IntegrationHelper do
+  import PhoenixLobsters.TestHelper
   use Hound.Helpers
 
   def login_user() do    

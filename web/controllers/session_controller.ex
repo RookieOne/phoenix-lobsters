@@ -1,7 +1,7 @@
 defmodule PhoenixLobsters.SessionController do
   use PhoenixLobsters.Web, :controller
-  alias PhoenixLobster.Actions.RegisterUser
-  alias PhoenixLobster.Actions.SigninUser
+  alias PhoenixLobsters.Actions.RegisterUser
+  alias PhoenixLobsters.Actions.SigninUser
 
   def new(conn, _params) do
     render conn, "new.html"

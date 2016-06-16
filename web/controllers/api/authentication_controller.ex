@@ -1,7 +1,7 @@
 defmodule PhoenixLobsters.Api.AuthenticationController do
   use PhoenixLobsters.Web, :controller
-  alias PhoenixLobster.Actions.RegisterUser
-  alias PhoenixLobster.Actions.SigninUser
+  alias PhoenixLobsters.Actions.RegisterUser
+  alias PhoenixLobsters.Actions.SigninUser
 
   def register(conn, %{ "display_name" => display_name, "email" => email, "password" => password }) do
     case RegisterUser.execute(display_name, email, password) do

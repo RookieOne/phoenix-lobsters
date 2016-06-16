@@ -1,8 +1,8 @@
-defmodule PhoenixLobsterTest.Actions.RegisterUser do
+defmodule PhoenixLobstersTest.Actions.RegisterUser do
   use ExUnit.Case
 
-  alias PhoenixLobster.Actions.RegisterUser
-  import PhoenixLobster.TestHelper
+  alias PhoenixLobsters.Actions.RegisterUser
+  import PhoenixLobsters.TestHelper
   import Comeonin.Bcrypt
 
   @tag :actions

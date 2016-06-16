@@ -1,7 +1,7 @@
 defmodule PhoenixLobsters.Integration.SubmitStoryTest do
   use ExUnit.Case
   use Hound.Helpers  
-  import PhoenixLobster.IntegrationHelper
+  import PhoenixLobsters.IntegrationHelper
 
   hound_session
 

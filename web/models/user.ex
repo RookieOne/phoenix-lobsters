@@ -1,4 +1,4 @@
-defmodule PhoenixLobster.User do
+defmodule PhoenixLobsters.User do
   use PhoenixLobsters.Web, :model
 
     @moduledoc """

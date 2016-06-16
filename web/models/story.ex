@@ -1,4 +1,4 @@
-defmodule PhoenixLobster.Story do
+defmodule PhoenixLobsters.Story do
 	use PhoenixLobsters.Web, :model
 
     @moduledoc """
@@ -18,7 +18,7 @@ defmodule PhoenixLobster.Story do
       field :score, :float
       field :status, :string
 
-      belongs_to :author, PhoenixLobster.User, foreign_key: :user_id
+      belongs_to :author, PhoenixLobsters.User, foreign_key: :user_id
 
       timestamps
     end
