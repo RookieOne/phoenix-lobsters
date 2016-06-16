@@ -11,7 +11,7 @@ defmodule PhoenixLobsters.Comment do
   schema "comments" do
     field :slug, :string
     field :compiled_html, :string
-    field :uncompiled_description, :string
+    field :uncompiled_markdown, :string
     field :status, :string
 
     belongs_to :author, PhoenixLobsters.User, foreign_key: :user_id
@@ -21,10 +21,10 @@ defmodule PhoenixLobsters.Comment do
     timestamps
   end
 
-  @required_fields ~w( slug uncompiled_description compiled_html author story)
-  @optional_fields ~w( comment status)
+  @required_fields ~w( slug uncompiled_markdown compiled_html user_id story_id)
+  @optional_fields ~w( comment_id status)
 
-  def changeset( mode, params \\ :empty ) do
+  def changeset( model, params \\ :empty ) do
     model
     |> cast( params, @required_fields, @optional_fields )
     |> Ecto.Changeset.assoc_constraint(:author)

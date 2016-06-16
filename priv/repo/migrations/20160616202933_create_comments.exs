@@ -6,9 +6,9 @@ defmodule PhoenixLobsters.Repo.Migrations.CreateComments do
       add :slug, :string
       add :compiled_html, :string
       add :uncompiled_markdown, :string
-      add :author, references(:users)
-      add :story, references(:stories)
-      add :comment, references(:comments)
+      add :user_id, references(:users)
+      add :story_id, references(:stories)
+      add :comment_id, references(:comments)
       add :status, :string, default: "active"
 
       timestamps
