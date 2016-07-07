@@ -2,7 +2,7 @@ defmodule PhoenixLobsters.IntegrationHelper do
   import PhoenixLobsters.TestHelper
   use Hound.Helpers
 
-  def login_user() do    
+  def login_user() do
     {:ok, user} = add_user(display_name: "Ironman", password: "password")
     navigate_to("/signin")
 
@@ -11,4 +11,5 @@ defmodule PhoenixLobsters.IntegrationHelper do
     submit_element({:name, "signin"})
     {:ok, user}
   end
+
 end

@@ -28,7 +28,9 @@ defmodule PhoenixLobsters.Router do
     
     get "/stories/new", StoryController, :new
     post "/stories/submit", StoryController, :create
-    get "/stories/:story_id", StoryController, :view
+    get "/stories/:story_id", StoryController, :show
+
+    post "/comments", CommentController, :create
   end
 
   # Other scopes may use custom stacks.

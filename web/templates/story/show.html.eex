@@ -1,0 +1,30 @@
+<div class="row">
+  <a id="story-view-title" href="<%= @story.url %>">
+    <h2> <%= @story.title %> </h2>
+  </a>
+</div>
+<div class="row">
+  <small >submitted by
+    <span id="story-view-author"><%= @story.author.display_name %></span>( <%= @story.submission_date %> )
+  </small>
+</div>
+<div class="row">
+  <h3> Description </h3>
+
+  <div id="story-view-description">
+    <%= raw(@story.compiled_html) %>
+  </div>
+
+  <ul>
+    <%= for comment <- @story.comments do %>
+      <li class="story-comment">
+        <%= raw(comment.compiled_html) %>
+        by <%= comment.author.display_name %>
+      </li>
+    <% end %>
+  </ul>
+
+  
+
+  <%= render "add_comment.html", conn: @conn, story: @story %>
+</div>
