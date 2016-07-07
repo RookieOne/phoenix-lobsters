@@ -24,7 +24,5 @@
     <% end %>
   </ul>
 
-  
-
   <%= render "add_comment.html", conn: @conn, story: @story %>
 </div>
