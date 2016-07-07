@@ -35,8 +35,10 @@ defmodule PhoenixLobsters.Integration.RegistrationTest do
 
     assert "Sorry, we couldn't register you" == inner_text({:id, "flash-error"})
 
-    error_message = find_element(:class, "errors") 
-      |> find_all_within_element(:tag, "li") 
+    errors_list = find_element(:class, "errors")
+
+    error_message = errors_list
+      |> find_all_within_element(:tag, "li")
       |> Enum.at(0)
       |> inner_text
 

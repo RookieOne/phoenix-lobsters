@@ -1,6 +1,10 @@
 defmodule PhoenixLobsters.ErrorView do
   use PhoenixLobsters.Web, :view
 
+  @moduledoc """
+  View for error pages  
+  """
+
   def render("404.html", _assigns) do
     "Page not found"
   end

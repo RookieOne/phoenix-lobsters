@@ -11,7 +11,7 @@ defmodule PhoenixLobsters.AuthenticationController.RegisterTest do
     conn = post conn, "/api/register", %{ display_name: display_name, email: email, password: password }
 
     assert conn.status == 201
-    
+
     {:ok, json} = Poison.Parser.parse(conn.resp_body)
 
     assert json["id"] != nil

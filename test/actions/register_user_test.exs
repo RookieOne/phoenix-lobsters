@@ -12,9 +12,9 @@ defmodule PhoenixLobstersTest.Actions.RegisterUser do
     display_name = "Ironman"
     email = gen_fake_email( "tony" )
     password = "iamironman"
-    
+
     {:ok, user} = RegisterUser.execute(display_name, email, password)
-    
+
     assert user.email == email
     assert user.hashed_password != nil
     assert user.hashed_password != "iamironman"
@@ -29,7 +29,7 @@ defmodule PhoenixLobstersTest.Actions.RegisterUser do
     display_name = "Ironman"
     email = gen_fake_email( "tony" )
     password = ""
-    
+
     {:error, message} = RegisterUser.execute(display_name, email, password)
 
     assert message == ["Password can't be blank"]
@@ -42,7 +42,7 @@ defmodule PhoenixLobstersTest.Actions.RegisterUser do
     display_name = "Ironman"
     email = ""
     password = "iamironman"
-    
+
     {:error, message} = RegisterUser.execute(display_name, email, password)
 
     assert message == ["Email can't be blank"]
@@ -55,7 +55,7 @@ defmodule PhoenixLobstersTest.Actions.RegisterUser do
     display_name = ""
     email = gen_fake_email( "tony" )
     password = "iamironman"
-    
+
     {:error, message} = RegisterUser.execute(display_name, email, password)
 
     assert message == ["Display name can't be blank"]
@@ -68,7 +68,7 @@ defmodule PhoenixLobstersTest.Actions.RegisterUser do
     display_name = "@ironman"
     email = gen_fake_email( "tony" )
     password = "iamironman"
-    
+
     {:error, message} = RegisterUser.execute(display_name, email, password)
 
     assert message == ["Display name has invalid format"]

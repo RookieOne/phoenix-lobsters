@@ -9,8 +9,11 @@ defmodule PhoenixLobsters.ErrorHelpers do
   Generates tag for inlined form input errors.
   """
   def error_tag(form, field) do
-    if error = form.errors[field] do
-      content_tag :span, translate_error(error), class: "help-block"
+    case form.errors[field] do
+      error ->
+        content_tag :span, translate_error(error), class: "help-block"
+      _ ->
+        nil
     end
   end
 

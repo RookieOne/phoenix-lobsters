@@ -1,10 +1,14 @@
 defmodule PhoenixLobsters.UserSocket do
   use Phoenix.Socket
 
-  ## Channels
+  @moduledoc """
+  Socket configuration for Phoenix Application  
+  """
+
+  # Channels
   # channel "rooms:*", PhoenixLobsters.RoomChannel
 
-  ## Transports
+  # Transports
   transport :websocket, Phoenix.Transports.WebSocket
   # transport :longpoll, Phoenix.Transports.LongPoll
 

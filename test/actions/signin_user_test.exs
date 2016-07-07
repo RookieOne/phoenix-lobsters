@@ -11,7 +11,7 @@ defmodule PhoenixLobstersTest.Actions.SiginUserTest do
     {:ok, user} = add_user(email: email, password: "iamironman")
 
     {:ok, signedin_user} = SigninUser.execute(email, "iamironman")
-    
+
     assert signedin_user.id == user.id
     assert signedin_user.email == email
   end
@@ -24,7 +24,7 @@ defmodule PhoenixLobstersTest.Actions.SiginUserTest do
     {:ok, _} = add_user(email: email, password: "iamironman")
 
     {:error, message} = SigninUser.execute( email, "wrongpassword")
-    
+
     assert message == "Email and/or password invalid"
   end
 

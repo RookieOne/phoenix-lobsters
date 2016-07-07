@@ -8,7 +8,7 @@ defmodule PhoenixLobsters.Actions.CreateStory do
   Usage:
     execute( title, author, url, uncompiled_markdown, is_author, submission_date )
   """
-  
+
   def execute( title, author,  url \\ "", uncompiled_markdown \\ "", is_author \\ false, submission_date \\ :calendar.universal_time ) do
     changeset = Story.changeset( %Story{}, %{ title: title,
                                               user_id: author,
@@ -21,6 +21,6 @@ defmodule PhoenixLobsters.Actions.CreateStory do
       {:ok, story} -> {:ok, story}
       {:error, changeset} -> {:error, changeset.errors}
     end
-    
   end
+
 end
