@@ -11,6 +11,10 @@
 <div class="row">
   <h3> Description </h3>
 
+  <div id="story-view-description">
+    <%= raw(@story.compiled_html) %>
+  </div>
+
   <ul>
     <%= for comment <- @story.comments do %>
       <li class="story-comment">
@@ -20,9 +24,7 @@
     <% end %>
   </ul>
 
-  <div id="story-view-description">
-    <%= raw(@story.compiled_html) %>
-  </div>
+  
 
   <%= render "add_comment.html", conn: @conn, story: @story %>
 </div>
