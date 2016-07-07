@@ -19,6 +19,7 @@ defmodule PhoenixLobsters.Story do
       field :status, :string
 
       belongs_to :author, PhoenixLobsters.User, foreign_key: :user_id
+      has_many :comments, PhoenixLobsters.Comment
 
       timestamps
     end
