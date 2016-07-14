@@ -17,13 +17,9 @@
 
   <hr>
 
-  <ul>
-    <%= for comment <- @story.comments do %>
-      <li> 
-          <%= render "comment.html", conn: @conn, story: @story, comment: comment %>     
-      </li>
+    <%= for comment <- @story.comments, comment.comment_id == nil do %>
+          <%= render "comment.html", conn: @conn, story: @story, comment: comment, comments: @story.comments %>
     <% end %>
-  </ul>
 
   <style>
   .story-comment {
@@ -31,7 +27,24 @@
     margin-left: 5px;
     padding-left: 15px;
   }
+
+  .reply-to-form {
+    display:none;
+  }
   </style>
+
+  <script>
+  /*
+    window.addEventListener( 'load', function _setupCommentBoxes() {      
+      var boxes = document.getElementsByClassName('-reply-to');
+      for (var i = 0; i < boxes.length; i++ ){
+        console.log(boxes[i]);
+
+        var $replyToButton = document.
+      }
+    });
+*/
+  </script>
 
   <%= render "add_comment.html", conn: @conn, story: @story %>
 </div>
