@@ -3,12 +3,21 @@ defmodule PhoenixLobsters.CommentController do
   alias PhoenixLobsters.Actions.CreateCommentOnStory
 
   def create(conn, %{ "comment" => %{ "content" => content, "story_id" => story_id } }) do
-    user = conn.assigns[:current_user]
-    case CreateCommentOnStory.execute(user.id, content, story_id) do
-      {:ok,comment} ->
+    case conn |> get_session(:current_user) do
+      nil ->
         conn
+        |> put_flash(:error, "You must be logged in to submit comments.")
         |> redirect(to: "/stories/#{story_id}")
+      user_id ->
+        case CreateCommentOnStory.execute(user_id, content, story_id) do
+          {:ok,comment} ->
+            conn
+            |> redirect(to: "/stories/#{story_id}")
+          {:error, message} ->
+            conn
+            |> put_flash(:error, message)
+            |> redirect(to: "/stories/#{story_id}")
+        end    
     end
   end
-
 end
