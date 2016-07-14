@@ -1,0 +1,17 @@
+<%= if get_flash(@conn, :info) do %>
+  <p id="flash-info" class="flash flash-info">
+    <%= get_flash(@conn, :info) %>
+  </p>
+<% end %>
+
+<%= if get_flash(@conn, :error) do %>
+  <p id="flash-error" class="flash flash-error">
+    <%= get_flash(@conn, :error) %>
+  </p>
+<% end %>
+
+<%= if get_flash(@conn, :success) do %>
+  <p id="flash-success" class="flash flash-success">
+    <%= get_flash(@conn, :success) %>
+  </p>
+<% end %>

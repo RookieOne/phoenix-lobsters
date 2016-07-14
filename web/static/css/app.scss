@@ -1,0 +1,34 @@
+@import "colors";
+@import "flash";
+@import "stories";
+
+body {
+  background: $white;
+  color: $font-color;
+  font-family: "Arimo";
+}
+
+#header {
+  border-bottom: 2px solid $orange;
+  .brand {
+    font-family: "Lobster Two";
+  }
+  a {
+    color: $font-color;
+    margin: 0.2em;
+    border-radius: 2px;
+    transition: background 0.4s, color 0.4s;
+    &:hover {
+      background: $orange;
+      color: $white;
+    }
+  }
+}
+
+.authentication-page {
+  width: 50%;
+  h1 {
+    font-size: 2em;
+    margin-bottom: 0.6em;
+  }
+}

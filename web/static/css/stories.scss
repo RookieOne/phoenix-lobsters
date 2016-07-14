@@ -1,0 +1,42 @@
+@import "colors";
+
+#stories {
+  list-style-type: none;
+  li.story {
+    padding: 1em;
+    animation: storyIn 1s;
+    &:hover {
+
+    }
+    a {
+      display: block;
+      text-decoration: none;
+    }
+    .title {
+      font-size: 1.2em;
+    }
+  }
+}
+
+@-webkit-keyframes storyIn {
+  0% {
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: translateX(-100%);
+  }
+
+  100% {
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: translateX(0%);
+  }
+}
+@keyframes storyIn {
+  0% {
+    transform-origin: 0 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform-origin: 0 0;
+    transform: translateX(0%);
+  }
+}
