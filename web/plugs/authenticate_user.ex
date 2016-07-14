@@ -3,6 +3,10 @@ defmodule PhoenixLobsters.Plugs.AuthenticateUser do
   alias PhoenixLobsters.User
   alias PhoenixLobsters.Repo
 
+  @moduledoc """
+  This plug handles authentication.
+  """
+
   def init(options) do
     options
   end

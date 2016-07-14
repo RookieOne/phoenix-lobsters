@@ -1,7 +1,11 @@
 defmodule PhoenixLobsters.StoryController do
-  use PhoenixLobsters.Web, :controller  
+  use PhoenixLobsters.Web, :controller
   alias PhoenixLobsters.Actions.CreateStory
   alias PhoenixLobsters.Story
+
+  @moduledoc """
+  Controller for /stories route  
+  """
 
   def new(conn, _params) do
     render conn, "new.html"
@@ -11,8 +15,8 @@ defmodule PhoenixLobsters.StoryController do
     conn |> redirect(to: "/")
   end
   def show(conn, %{"story_id" => story_id}) do
-    story = Story 
-    |> Repo.get( story_id ) 
+    story = Story
+    |> Repo.get(story_id)
     |> Repo.preload([:author, :comments, comments: :author])
 
     render conn, "show.html", story: story

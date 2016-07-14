@@ -14,7 +14,7 @@ defmodule PhoenixLobstersTest.Actions.CreateStory do
 
   @tag :actions
   @tag :story
-  test "Stories cannot be created with bad users" do    
+  test "Stories cannot be created with bad users" do
     title = "Totally great submission"
     {:error, errors} = CreateStory.execute( title, -42)
     assert Enum.count(errors) == 1
@@ -24,7 +24,7 @@ defmodule PhoenixLobstersTest.Actions.CreateStory do
 
   @tag :actions
   @tag :story
-  test "Stories cannot be created without users" do    
+  test "Stories cannot be created without users" do
     title = "Totally great submission"
     {:error, errors} = CreateStory.execute( title, nil)
     assert Enum.count(errors) == 1

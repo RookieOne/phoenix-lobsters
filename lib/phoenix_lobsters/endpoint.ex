@@ -1,6 +1,10 @@
 defmodule PhoenixLobsters.Endpoint do
   use Phoenix.Endpoint, otp_app: :phoenix_lobsters
 
+  @moduledoc """
+  Endpoint for Phoenix application  
+  """
+
   socket "/socket", PhoenixLobsters.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.

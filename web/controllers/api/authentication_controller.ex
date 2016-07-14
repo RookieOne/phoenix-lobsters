@@ -3,13 +3,17 @@ defmodule PhoenixLobsters.Api.AuthenticationController do
   alias PhoenixLobsters.Actions.RegisterUser
   alias PhoenixLobsters.Actions.SigninUser
 
+  @moduledoc """
+  Controller for authentication api endpoint
+  """
+
   def register(conn, %{ "display_name" => display_name, "email" => email, "password" => password }) do
     case RegisterUser.execute(display_name, email, password) do
-      {:ok,user} ->
+      {:ok, user} ->
         conn
         |> put_status(201)
         |> render("success.json", user: user)
-      {:error,errors} ->
+      {:error, errors} ->
         conn
         |> put_status(400)
         |> json(%{ errors: errors })
@@ -24,11 +28,11 @@ defmodule PhoenixLobsters.Api.AuthenticationController do
 
   def signin(conn, %{ "email" => email, "password" => password }) do
     case SigninUser.execute(email, password) do
-      {:ok,user} ->
+      {:ok, user} ->
         conn
         |> put_status(200)
         |> render("success.json", user: user)
-      {:error,message} ->
+      {:error, message} ->
         conn
         |> put_status(401)
         |> json(%{ message: message })

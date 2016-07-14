@@ -1,6 +1,10 @@
 defmodule PhoenixLobsters.Router do
   use PhoenixLobsters.Web, :router
 
+  @moduledoc """
+  Router for our Phoenix application  
+  """
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -18,14 +22,14 @@ defmodule PhoenixLobsters.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    
+
     get "/signin", SessionController, :new
     post "/signin", SessionController, :create
     get "/signout", SessionController, :destroy
 
     get "/registration/new", RegistrationController, :new
     post "/registration", RegistrationController, :create
-    
+
     get "/stories/new", StoryController, :new
     post "/stories/submit", StoryController, :create
     get "/stories/:story_id", StoryController, :show

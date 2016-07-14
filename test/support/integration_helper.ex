@@ -2,7 +2,11 @@ defmodule PhoenixLobsters.IntegrationHelper do
   import PhoenixLobsters.TestHelper
   use Hound.Helpers
 
-  def login_user() do
+  @moduledoc """
+  Helper functions for integration tests
+  """
+
+  def login_user do
     {:ok, user} = add_user(display_name: "Ironman", password: "password")
     navigate_to("/signin")
 

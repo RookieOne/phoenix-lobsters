@@ -1,6 +1,6 @@
 defmodule PhoenixLobsters.Integration.SubmitStoryTest do
   use ExUnit.Case
-  use Hound.Helpers  
+  use Hound.Helpers
   import PhoenixLobsters.IntegrationHelper
 
   hound_session
@@ -32,9 +32,9 @@ defmodule PhoenixLobsters.Integration.SubmitStoryTest do
     assert Regex.match?( ~r/^\/stories\/\d+$/u,  current_path )
 
     assert test_title == visible_text({:id, "story-view-title"})
-    assert test_url == attribute_value({:id, "story-view-title"}, :href ) 
+    assert test_url == attribute_value({:id, "story-view-title"}, :href )
     assert user.display_name == visible_text({:id, "story-view-author"})
-    assert "<h1>ZOMG</h1>" == inner_html({:id, "story-view-description"}) |> String.strip
+    assert "<h1>ZOMG</h1>" == {:id, "story-view-description"} |> inner_html() |> String.strip
   end
 
 end

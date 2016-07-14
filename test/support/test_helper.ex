@@ -2,6 +2,10 @@ defmodule PhoenixLobsters.TestHelper do
   alias PhoenixLobsters.Actions.RegisterUser
   alias PhoenixLobsters.Actions.CreateStory
 
+  @moduledoc """
+  Helper functions for testing PhoenixLobsters
+  """
+
   def add_user(opts \\ %{}) do
     display_name = opts[:display_name] || "Ironman"
     email = opts[:email] || gen_fake_email("tony")
@@ -37,6 +41,5 @@ defmodule PhoenixLobsters.TestHelper do
                                         password)
     user
   end
-
 
 end

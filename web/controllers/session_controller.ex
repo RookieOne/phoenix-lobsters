@@ -3,6 +3,10 @@ defmodule PhoenixLobsters.SessionController do
   alias PhoenixLobsters.Actions.RegisterUser
   alias PhoenixLobsters.Actions.SigninUser
 
+  @moduledoc """
+  Controller for sessions
+  """
+
   def new(conn, _params) do
     render conn, "new.html"
   end
