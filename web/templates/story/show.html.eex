@@ -14,7 +14,7 @@
 
     <%= render "add_comment.html", conn: @conn, story: @story %>
 
-    <hr>
+    <hr />
 
     <div id="comments">
       <%= for comment <- @story.comments, comment.comment_id == nil do %>
@@ -24,18 +24,17 @@
     </div>
 
     <script>
-    /*
       window.addEventListener( 'load', function _setupCommentBoxes() {      
-        var boxes = document.getElementsByClassName('-reply-to');
-        for (var i = 0; i < boxes.length; i++ ){
-          console.log(boxes[i]);
-
-          var $replyToButton = document.
-        }
+        [].slice.call(document.getElementsByClassName('-reply-to'))
+        .forEach( function _setupLink( $replyLink ) {    
+          var commentId = $replyLink.getAttribute('data-comment-id');          
+          var $replyForm = document.getElementById( '-reply-to-form-'+ commentId);
+          $replyLink.addEventListener('click', function _showReplyForm(){
+            console.log($replyForm.style.display)
+            console.log($replyForm.display)
+            $replyForm.style.display = ($replyForm.style.display !== 'block') ? 'block' : 'none';
+          });
+        });
       });
-  */
     </script>
-
-    
-  </div>
 </div>

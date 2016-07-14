@@ -2,20 +2,35 @@
 @import "flash";
 @import "stories";
 @import "story";
+@import "form";
 
 body {
-  background: $white;
+  background: $black;
   color: $font-color;
-  font-family: "Inconsolata";
+  font-family: "Ubuntu Mono";
+  font-size: 18px;
+  a {
+    color: $orange;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 0.4em;
+    &:hover {
+      background: $orange;
+      color: $white;
+    }
+  }
 }
 
 #header {
+  background: $black;
+  border-width: 0px;
   border-bottom: 2px solid $orange;
   .brand {
     font-family: "Lobster Two";
   }
   a {
     color: $font-color;
+    cursor: pointer;
     margin: 0.2em;
     border-radius: 2px;
     transition: background 0.4s, color 0.4s;

@@ -12,7 +12,7 @@ defmodule PhoenixLobsters.CommentController do
         case CreateCommentOnStory.execute(user_id, content, story_id, comment_id) do
           {:ok,comment} ->
             conn
-            |> redirect(to: "/stories/#{story_id}")
+            |> redirect(to: "/stories/#{story_id}/#comment-#{comment.id}")
           {:error, message} ->
             conn
             |> put_flash(:error, message)
