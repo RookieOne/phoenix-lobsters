@@ -1,0 +1,46 @@
+@import "colors";
+
+.flash {
+  padding: 1em;
+  animation: flashIn 0.8s;
+}
+
+.flash-success {
+  background: $success-background-color;
+  color: $success-color;
+}
+.flash-error {
+  background: $error-background-color;
+  color: $error-color;
+}
+.flash-info {
+  background: $info-background-color;
+  color: $info-color;
+}
+
+@-webkit-keyframes flashIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 0%;
+    -webkit-transform: scale(.2) translate(0%, -200%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 0%;
+    -webkit-transform: scale(1) translate(0%, 0%);
+  }
+}
+@keyframes flashIn {
+  0% {
+    opacity: 0;
+    transform-origin: 50% 0%;
+    transform: scale(.2) translate(0%, -200%);
+  }
+
+  100% {
+    opacity: 1;
+    transform-origin: 50% 0%;
+    transform: scale(1) translate(0%, 0%);
+  }
+}

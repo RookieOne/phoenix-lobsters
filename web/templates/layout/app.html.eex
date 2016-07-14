@@ -8,16 +8,16 @@
     <meta name="author" content="">
 
     <title>PhoenixLobsters!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Lobster+Two:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo:400,700,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
     <%= render "header.html", conn: @conn %>
     <div class="container">
-      <p id="flash-info" class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p id="flash-error" class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-      <p id="flash-success" class="alert alert-success" role="alert"><%= get_flash(@conn, :success) %></p>
-
+      <%= render PhoenixLobsters.SharedView, "flash.html", conn: @conn %>
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>
