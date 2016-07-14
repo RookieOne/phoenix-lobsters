@@ -19,25 +19,19 @@
 
   <ul>
     <%= for comment <- @story.comments do %>
-      <li class="story-comment">
-
-        <%= raw(comment.compiled_html) %>
-        by <%= comment.author.display_name %>
-        <br> <small> self comment <%= comment.id %> </small>
-        <br> <small> parent comment <%= comment.comment_id %> </small>
-
-        <%= form_for @conn, "/comments", [as: :comment], fn form -> %>
-  
-          <%= hidden_input form, :comment_id, value: comment.id %>
-          <%= hidden_input form, :story_id, value: @story.id %>
-          <%= textarea form, :content, class: "form-control" %>
-          <%= submit "Reply", class: "btn btn-default" %>
-
-        <% end %>
-
+      <li> 
+          <%= render "comment.html", conn: @conn, story: @story, comment: comment %>     
       </li>
     <% end %>
   </ul>
+
+  <style>
+  .story-comment {
+    border-left: 1px solid #0F0;
+    margin-left: 5px;
+    padding-left: 15px;
+  }
+  </style>
 
   <%= render "add_comment.html", conn: @conn, story: @story %>
 </div>
