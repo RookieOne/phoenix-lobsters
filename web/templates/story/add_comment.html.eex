@@ -2,6 +2,6 @@
   
   <%= hidden_input form, :story_id, value: @story.id %>
   <%= textarea form, :content, class: "form-control" %>
-  <%= submit "Save", class: "btn btn-default" %>z
+  <%= submit "Save", class: "btn btn-default" %>
 
 <% end %>
