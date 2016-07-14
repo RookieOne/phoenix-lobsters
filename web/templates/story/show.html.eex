@@ -34,16 +34,16 @@
   </style>
 
   <script>
-  /*
     window.addEventListener( 'load', function _setupCommentBoxes() {      
-      var boxes = document.getElementsByClassName('-reply-to');
-      for (var i = 0; i < boxes.length; i++ ){
-        console.log(boxes[i]);
-
-        var $replyToButton = document.
-      }
+      [].slice.call(document.getElementsByClassName('-reply-to'))
+      .forEach( function _setupLink( $replyLink ) {    
+        var commentId = $replyLink.getAttribute('data-comment-id');          
+        var $replyForm = document.getElementById( '-reply-to-form-'+ commentId);
+        $replyLink.addEventListener('click', function _showReplyForm(){
+          $replyForm.style.display = ($replyForm.style.display === 'none') ? 'block' : 'none';        
+        });
+      });
     });
-*/
   </script>
 
   <%= render "add_comment.html", conn: @conn, story: @story %>
