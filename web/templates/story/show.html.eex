@@ -1,50 +1,41 @@
-<div class="row">
-  <a id="story-view-title" href="<%= @story.url %>">
-    <h2> <%= @story.title %> </h2>
-  </a>
-</div>
-<div class="row">
-  <small >submitted by
-    <span id="story-view-author"><%= @story.author.display_name %></span>( <%= @story.submission_date %> )
-  </small>
-</div>
-<div class="row">
-  <h3> Description </h3>
-
-  <div id="story-view-description">
-    <%= raw(@story.compiled_html) %>
+<div id="story">
+  <div class="row">
+    <a id="story-view-title" href="<%= @story.url %>">
+      <h2> <%= @story.title %> </h2>
+    </a>
+    <small >submitted by
+      <span id="story-view-author"><%= @story.author.display_name %></span>( <%= @story.submission_date %> )
+    </small>
   </div>
+  <div class="row">
+    <div id="story-view-description">
+      <%= raw(@story.compiled_html) %>
+    </div>
 
-  <hr>
+    <%= render "add_comment.html", conn: @conn, story: @story %>
 
-    <%= for comment <- @story.comments, comment.comment_id == nil do %>
-          <%= render "comment.html", conn: @conn, story: @story, comment: comment, comments: @story.comments %>
-    <% end %>
+    <hr>
 
-  <style>
-  .story-comment {
-    border-left: 1px solid #0F0;
-    margin-left: 5px;
-    padding-left: 15px;
-  }
+    <div id="comments">
+      <%= for comment <- @story.comments, comment.comment_id == nil do %>
+        <%= render "comment.html", conn: @conn, 
+          story: @story, comment: comment, comments: @story.comments %>
+      <% end %>
+    </div>
 
-  .reply-to-form {
-    display:none;
-  }
-  </style>
+    <script>
+    /*
+      window.addEventListener( 'load', function _setupCommentBoxes() {      
+        var boxes = document.getElementsByClassName('-reply-to');
+        for (var i = 0; i < boxes.length; i++ ){
+          console.log(boxes[i]);
 
-  <script>
-  /*
-    window.addEventListener( 'load', function _setupCommentBoxes() {      
-      var boxes = document.getElementsByClassName('-reply-to');
-      for (var i = 0; i < boxes.length; i++ ){
-        console.log(boxes[i]);
+          var $replyToButton = document.
+        }
+      });
+  */
+    </script>
 
-        var $replyToButton = document.
-      }
-    });
-*/
-  </script>
-
-  <%= render "add_comment.html", conn: @conn, story: @story %>
+    
+  </div>
 </div>

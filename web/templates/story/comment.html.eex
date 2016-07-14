@@ -13,6 +13,7 @@
   <% end %>
 
   <%= for comment <- @comments, comment.comment_id == @comment.id do %>
-        <%= render "comment.html", conn: @conn, story: @story, comment: comment, comments: @comments %>
+    <%= render "comment.html", conn: @conn, 
+      story: @story, comment: comment, comments: @comments %>
   <% end %>
 </div>

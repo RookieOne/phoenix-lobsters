@@ -1,0 +1,61 @@
+#story {
+  #comments {
+    margin-left: -3em;
+  }
+  .story-comment {
+    margin-left: 3em;
+    animation: commentIn 1s;
+    form {
+      margin-bottom: 1em;
+      input[type=submit] {
+        margin-top: 0.4em;
+      }
+    }
+  }
+}
+
+// @-webkit-keyframes commentIn {
+//   0% {
+//     -webkit-transform-origin: 0 0;
+//     -webkit-transform: translateY(-100%);
+//   }
+
+//   100% {
+//     -webkit-transform-origin: 0 0;
+//     -webkit-transform: translateY(0%);
+//   }
+// }
+// @keyframes commentIn {
+//   0% {
+//     transform-origin: 0 0;
+//     transform: translateY(-100%);
+//   }
+
+//   100% {
+//     transform-origin: 0 0;
+//     transform: translateY(0%);
+//   }
+// }
+
+@-webkit-keyframes commentIn {
+  0% {
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: translateY(100%);
+  }
+
+  100% {
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: translateY(0%);
+  }
+}
+@keyframes commentIn {
+  0% {
+    transform-origin: 0 0;
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform-origin: 0 0;
+    transform: translateY(0%);
+  }
+}
