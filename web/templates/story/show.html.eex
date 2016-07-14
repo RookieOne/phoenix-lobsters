@@ -15,6 +15,8 @@
     <%= raw(@story.compiled_html) %>
   </div>
 
+  <%= render "add_comment.html", conn: @conn, story: @story %>
+
   <hr>
 
     <%= for comment <- @story.comments, comment.comment_id == nil do %>
@@ -44,7 +46,5 @@
         });
       });
     });
-  </script>
-
-  <%= render "add_comment.html", conn: @conn, story: @story %>
+  </script>  
 </div>

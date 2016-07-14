@@ -1,7 +1,7 @@
 <div class="story-comment">
   <span class="story-comment-navbar">
     <%= @comment.author.display_name %>
-    | <a class="-reply-to" data-comment-id="<%= @comment.id %>">reply</a>
+    | <a class="-reply-to" id="comment-<%= @comment.id %>" data-comment-id="<%= @comment.id %>">reply</a>
   </span>
   <%= raw(@comment.compiled_html) %>
     
