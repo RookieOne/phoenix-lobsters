@@ -15,16 +15,36 @@
     <%= raw(@story.compiled_html) %>
   </div>
 
-  <ul>
-    <%= for comment <- @story.comments do %>
-      <li class="story-comment">
-        <%= raw(comment.compiled_html) %>
-        by <%= comment.author.display_name %>
-      </li>
-    <% end %>
-  </ul>
+  <hr>
 
-  
+    <%= for comment <- @story.comments, comment.comment_id == nil do %>
+          <%= render "comment.html", conn: @conn, story: @story, comment: comment, comments: @story.comments %>
+    <% end %>
+
+  <style>
+  .story-comment {
+    border-left: 1px solid #0F0;
+    margin-left: 5px;
+    padding-left: 15px;
+  }
+
+  .reply-to-form {
+    display:none;
+  }
+  </style>
+
+  <script>
+  /*
+    window.addEventListener( 'load', function _setupCommentBoxes() {      
+      var boxes = document.getElementsByClassName('-reply-to');
+      for (var i = 0; i < boxes.length; i++ ){
+        console.log(boxes[i]);
+
+        var $replyToButton = document.
+      }
+    });
+*/
+  </script>
 
   <%= render "add_comment.html", conn: @conn, story: @story %>
 </div>
