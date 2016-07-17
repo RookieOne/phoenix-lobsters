@@ -10,8 +10,8 @@
   <%= form_for @conn, "/comments", [as: :comment, class: "reply-to-form",id: "-reply-to-form-#{@comment.id}"], fn form -> %>
     <%= hidden_input form, :comment_id, value: @comment.id %>
     <%= hidden_input form, :story_id, value: @story.id %>
-    <%= textarea form, :content, class: "form-control" %>
-    <%= submit "Reply", class: "btn btn-default" %>
+    <%= textarea form, :content, [class: "form-control", id: "comment-body-#{@comment.id}" ] %>
+    <%= submit "Reply", [id: "submit-comment-on-#{@comment.id}", class: "btn btn-default"] %>
   <% end %>
 
   <%= for comment <- @comments, comment.comment_id == @comment.id do %>

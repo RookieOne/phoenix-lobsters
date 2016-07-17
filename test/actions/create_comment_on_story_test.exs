@@ -34,6 +34,8 @@ defmodule PhoenixLobstersTest.Actions.CreateCommentOnStory do
     {:ok, replyComment} = CreateCommentOnStory.execute( user.id, test_reply_markdown, story.id, comment.id)
 
     # other assertions here
+    assert test_html == comment.compiled_html |> String.strip
+    assert test_markdown == comment.uncompiled_markdown
     assert test_reply_html == replyComment.compiled_html |> String.strip
     assert test_reply_markdown == replyComment.uncompiled_markdown
     assert comment.id == replyComment.comment_id
