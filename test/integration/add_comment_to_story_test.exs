@@ -20,7 +20,7 @@ defmodule PhoenixLobsters.Integration.AddCommentToStoryTest do
     fill_field({:id, "comment_content"}, "Super special comment")
     submit_element({:id, "add_comment_to_story"})
 
-    assert current_path == "/stories/#{story.id}"
+    assert current_path == "/stories/#{story.id}/"
 
     assert 1 == length(find_all_elements(:class, "story-comment"))
   end

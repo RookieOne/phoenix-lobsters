@@ -37,7 +37,7 @@ defmodule PhoenixLobsters.Integration.SigninTest do
 
     element = find_element(:id, "flash-error")
 
-    assert "Email and/or password invalid" == element |> inner_html
+    assert "Email and/or password invalid" == element |> inner_html |> String.strip
   end
 
   @tag :integration
@@ -52,7 +52,7 @@ defmodule PhoenixLobsters.Integration.SigninTest do
 
     element = find_element(:id, "flash-error")
 
-    assert "Email and/or password invalid" == element |> inner_html
+    assert "Email and/or password invalid" == element |> inner_html |> String.strip
   end
 
 end
