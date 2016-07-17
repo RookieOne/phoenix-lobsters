@@ -28,13 +28,15 @@ defmodule PhoenixLobsters.Integration.AddCommentToCommentTest do
     click(reply_button)
     
     comment_id = attribute_value(reply_button, :id)
-    comment_num = String.slice( comment_id, 8..-1)
+    {comment_num, _} = Integer.parse(String.slice( comment_id, 8..-1))
     
     fill_field({:id, "comment-body-#{comment_num}"}, "Super special comment reply")
     submit_element({:id, "submit-comment-on-#{comment_num}"})
 
-
     assert 2 == length(find_all_elements(:class, "story-comment"))
+
+    IO.inspect find_all_elements(:class, "story-comment")
+    comment_element = find_element( :id, "comment-body-markup-#{comment_num+1}")
   end
 
 end
