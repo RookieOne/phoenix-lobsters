@@ -1,0 +1,23 @@
+<div class="story-comment">
+  <span class="story-comment-navbar">
+    <span class="comment-author">
+      <%= @comment.author.display_name %>
+    </span>
+    | <a class="-reply-to" id="comment-<%= @comment.id %>" data-comment-id="<%= @comment.id %>">reply</a>
+  </span>
+    <div id=" <%="comment-body-markup-#{@comment.id}"%>">
+  <%= raw(@comment.compiled_html) %>
+    </div>
+    
+  <%= form_for @conn, "/comments", [as: :comment, class: "reply-to-form",id: "-reply-to-form-#{@comment.id}"], fn form -> %>
+    <%= hidden_input form, :comment_id, value: @comment.id %>
+    <%= hidden_input form, :story_id, value: @story.id %>
+    <%= textarea form, :content, [class: "form-control", id: "comment-body-#{@comment.id}" ] %>
+    <%= submit "Reply", [id: "submit-comment-on-#{@comment.id}", class: "btn btn-default"] %>
+  <% end %>
+
+  <%= for comment <- @comments, comment.comment_id == @comment.id do %>
+    <%= render "comment.html", conn: @conn, 
+      story: @story, comment: comment, comments: @comments %>
+  <% end %>
+</div>

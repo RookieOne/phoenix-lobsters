@@ -1,30 +1,40 @@
-<div class="row">
-  <a id="story-view-title" href="<%= @story.url %>">
-    <h2> <%= @story.title %> </h2>
-  </a>
-</div>
-<div class="row">
-  <small >submitted by
-    <span id="story-view-author"><%= @story.author.display_name %></span>( <%= @story.submission_date %> )
-  </small>
-</div>
-<div class="row">
-  <h3> Description </h3>
-
-  <div id="story-view-description">
-    <%= raw(@story.compiled_html) %>
+<div id="story">
+  <div class="row">
+    <a id="story-view-title" href="<%= @story.url %>">
+      <h2> <%= @story.title %> </h2>
+    </a>
+    <small >submitted by
+      <span id="story-view-author"><%= @story.author.display_name %></span>( <%= @story.submission_date %> )
+    </small>
   </div>
+  <div class="row">
+    <div id="story-view-description">
+      <%= raw(@story.compiled_html) %>
+    </div>
 
-  <ul>
-    <%= for comment <- @story.comments do %>
-      <li class="story-comment">
-        <%= raw(comment.compiled_html) %>
-        by <%= comment.author.display_name %>
-      </li>
-    <% end %>
-  </ul>
+    <%= render "add_comment.html", conn: @conn, story: @story %>
 
-  
+    <hr />
 
-  <%= render "add_comment.html", conn: @conn, story: @story %>
+    <div id="comments">
+      <%= for comment <- @story.comments, comment.comment_id == nil do %>
+        <%= render "comment.html", conn: @conn, 
+          story: @story, comment: comment, comments: @story.comments %>
+      <% end %>
+    </div>
+
+    <script>
+      window.addEventListener( 'load', function _setupCommentBoxes() {      
+        [].slice.call(document.getElementsByClassName('-reply-to'))
+        .forEach( function _setupLink( $replyLink ) {    
+          var commentId = $replyLink.getAttribute('data-comment-id');          
+          var $replyForm = document.getElementById( '-reply-to-form-'+ commentId);
+          $replyLink.addEventListener('click', function _showReplyForm(){
+            console.log($replyForm.style.display)
+            console.log($replyForm.display)
+            $replyForm.style.display = ($replyForm.style.display !== 'block') ? 'block' : 'none';
+          });
+        });
+      });
+    </script>
 </div>
