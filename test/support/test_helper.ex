@@ -1,6 +1,7 @@
 defmodule PhoenixLobsters.TestHelper do
   alias PhoenixLobsters.Actions.RegisterUser
   alias PhoenixLobsters.Actions.CreateStory
+  alias PhoenixLobsters.Actions.CreateCommentOnStory
 
   @moduledoc """
   Helper functions for testing PhoenixLobsters
@@ -40,6 +41,33 @@ defmodule PhoenixLobsters.TestHelper do
                                         gen_fake_email( basename, domain ),
                                         password)
     user
+  end
+
+  def add_comment(opts \\ %{}) do
+    user_id = case opts[:user_id] do
+      nil ->
+        user = add_user!
+        user.id
+      user_id -> user_id
+    end
+
+    content = opts[:content] || "I am a comment"
+
+    story_id = case opts[:story] do
+      nil ->
+        story = add_story!
+        story.id
+      story -> story.id
+    end
+
+    comment_id = opts[:comment_id]
+
+    CreateCommentOnStory.execute(user_id, content, story_id, comment_id)
+  end
+
+  def add_comment!(opts \\ %{}) do
+    {:ok, comment} = add_comment(opts)
+    comment
   end
 
 end

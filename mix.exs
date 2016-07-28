@@ -41,7 +41,8 @@ defmodule PhoenixLobsters.Mixfile do
      {:earmark, "~>0.2.1"},
      {:apex, "~>0.5.0"},
      {:hound, "~> 1.0"},
-     {:dogma, "~> 0.1", only: :dev}]
+     {:dogma, "~> 0.1", only: :dev},
+     {:quick_alias, "~> 0.1.0"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
