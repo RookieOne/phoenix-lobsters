@@ -16,4 +16,12 @@ defmodule PhoenixLobsters.IntegrationHelper do
     {:ok, user}
   end
 
+  def get_flash_error_message() do
+    find_element(:class, "flash-error") |> inner_text
+  end
+
+  def get_flash_success_message() do
+    find_element(:class, "flash-success") |> inner_text
+  end
+
 end

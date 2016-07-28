@@ -1,5 +1,6 @@
 defmodule PhoenixLobsters.Actions.RemoveStory do
-  use QuickAlias, PhoenixLobsters
+  alias PhoenixLobsters.Story
+  alias PhoenixLobsters.Repo
   import PhoenixLobsters.Errors
 
   @moduledoc """

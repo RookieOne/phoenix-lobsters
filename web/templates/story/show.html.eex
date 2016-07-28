@@ -8,6 +8,11 @@
     </small>
   </div>
   <div class="row">
+
+    <%= form_for @conn, "/stories/#{@story.id}", [method: :delete, as: :story, id: :remove_story], fn form -> %>
+      <%= submit "Remove Story", id: "remove-story-btn", class: "btn btn-default" %>
+    <% end %>
+
     <div id="story-view-description">
       <%= raw(@story.compiled_html) %>
     </div>
@@ -24,7 +29,7 @@
     </div>
 
     <script>
-      window.addEventListener( 'load', function _setupCommentBoxes() {      
+      window.addEventListener( 'load', function _setupCommentBoxes() {
         [].slice.call(document.getElementsByClassName('-reply-to'))
         .forEach( function _setupLink( $replyLink ) {    
           var commentId = $replyLink.getAttribute('data-comment-id');          
