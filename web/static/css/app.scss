@@ -1,50 +1,32 @@
 @import "colors";
+@import "typography";
 @import "flash";
 @import "stories";
 @import "story";
 @import "form";
+@import "header";
 
 body {
   background: $black;
-  color: $font-color;
-  font-family: "Ubuntu Mono";
-  font-size: 18px;
-  a {
-    color: $orange;
-    font-weight: bold;
-    text-decoration: underline;
-    padding: 0.4em;
-    &:hover {
-      background: $orange;
-      color: $white;
-    }
+}
+
+.terminal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .terminal-screen {
+    max-width: 80%;
+    min-width: 30em;
   }
 }
 
-#header {
-  background: $black;
-  border-width: 0px;
-  border-bottom: 2px solid $orange;
-  .brand {
-    font-family: "Lobster Two";
-  }
-  a {
-    color: $font-color;
-    cursor: pointer;
-    margin: 0.2em;
-    border-radius: 2px;
-    transition: background 0.4s, color 0.4s;
-    &:hover {
-      background: $orange;
-      color: $white;
-    }
-  }
-}
-
-.authentication-page {
-  width: 50%;
+.box {
+  border: 1px solid $orange;
+  padding: 1.4em;
   h1 {
-    font-size: 2em;
-    margin-bottom: 0.6em;
+    text-align: center;
+  }
+  input[type=submit] {
+    margin-top: 2em;
   }
 }

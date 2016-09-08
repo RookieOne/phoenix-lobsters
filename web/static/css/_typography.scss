@@ -1,0 +1,29 @@
+body {
+  color: $font-color;
+  font-family: "Ubuntu Mono";
+  font-size: 18px;
+  text-transform: uppercase;
+  a {
+    color: $orange;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 0.4em;
+    transition: background 0.4s, color 0.4s;
+    &:hover {
+      background: $highlight-color;
+      color: $black;
+    }
+  }
+
+  h1 {
+    font-size: 2em;
+    margin: 0em;
+    margin-bottom: 0.6em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  hr {
+    border-color: $orange;
+  }
+}

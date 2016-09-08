@@ -1,4 +1,4 @@
-<div class="authentication-page">
+<div class="box">
   <h1>Sign in</h1>
 
   <%= form_for @conn, "/signin", [as: :signin, name: :signin], fn f -> %>

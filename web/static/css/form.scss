@@ -1,5 +1,9 @@
 @import "colors";
 
+.form-group {
+  margin-bottom: 1.4em;
+}
+
 label {
   font-weight: normal;
   font-size: 0.8em;
@@ -7,7 +11,7 @@ label {
 
 input[type=text], input[type=password] {
   background: $black;
-  border-width: 0px;
+  border: 1px solid $black;
   border-bottom: 1px solid $font-color;
   border-radius: 0px;
   font-size: 1.4em;
@@ -16,7 +20,22 @@ input[type=text], input[type=password] {
   font-weight: bold;
   &:focus {
     box-shadow: none;
-    border-color: $orange;
-    border: 1px solid $font-color;
+    border: 1px solid $highlight-color;
+    color: $highlight-color;
+  }
+}
+
+textarea {
+  background: $black;
+  display: block;
+  width: 100%;
+  border: 1px solid $orange;
+  min-height: 10em;
+  padding: 0.4em;
+  &:focus {
+    box-shadow: none;
+    border: 1px solid $highlight-color;
+    color: $highlight-color;
+    outline: none;
   }
 }

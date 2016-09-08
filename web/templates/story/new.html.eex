@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <label for="uncompiled_markdown">Description (optional)</label>
-    <%= textarea f, :uncompiled_markdown, class: "form-control" %>
+    <%= textarea f, :uncompiled_markdown %>
   </div>
 
   <div class="checkbox">
