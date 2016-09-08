@@ -32,7 +32,8 @@ defmodule PhoenixLobsters.Router do
 
     get "/stories/new", StoryController, :new
     post "/stories/submit", StoryController, :create
-    get "/stories/:story_id", StoryController, :show
+    get "/stories/:id", StoryController, :show
+    delete "/stories/:id", StoryController, :destroy
 
     post "/comments", CommentController, :create
   end

@@ -1,7 +1,6 @@
 defmodule PhoenixLobsters.StoryController do
   use PhoenixLobsters.Web, :controller
-  alias PhoenixLobsters.Actions.CreateStory
-  alias PhoenixLobsters.Story
+  use QuickAlias, PhoenixLobsters
 
   @moduledoc """
   Controller for /stories route  
@@ -14,9 +13,9 @@ defmodule PhoenixLobsters.StoryController do
   def show(conn, story_id: nil) do
     conn |> redirect(to: "/")
   end
-  def show(conn, %{"story_id" => story_id}) do
+  def show(conn, %{"id" => id}) do
     story = Story
-    |> Repo.get(story_id)
+    |> Repo.get(id)
     |> Repo.preload([:author, :comments, comments: :author])
 
     render conn, "show.html", story: story
@@ -46,6 +45,17 @@ defmodule PhoenixLobsters.StoryController do
     conn
     |> put_flash(:error, "Title and URL are required.")
     |> render("new.html")
+  end
+
+  def destroy(conn, %{ "id" => id }) do
+    story = Story |> Repo.get(id)
+
+    case RemoveStory.execute(story) do
+      {:ok, story} ->
+        conn
+        |> put_flash(:success, "Story is removed")
+        |> redirect(to: "/")
+    end
   end
 
 end
