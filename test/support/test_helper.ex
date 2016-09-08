@@ -36,6 +36,10 @@ defmodule PhoenixLobsters.TestHelper do
     basename <> :base64.encode( :crypto.strong_rand_bytes(8)) <> "@" <> domain
   end
 
+  def gen_random_suffix() do
+    :base64.encode( :crypto.strong_rand_bytes(8))
+  end
+
   def gen_temp_user( display_name \\ "Ironman", password \\ "iamironman", basename \\ "tony", domain \\ "example.com") do
     {:ok, user} = RegisterUser.execute( display_name,
                                         gen_fake_email( basename, domain ),
