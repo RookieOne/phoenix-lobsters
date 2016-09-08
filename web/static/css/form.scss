@@ -6,12 +6,12 @@ label {
 }
 
 input[type=text], input[type=password] {
-  background: $black;
+  background-color: $black;
   border-width: 0px;
   border-bottom: 1px solid $font-color;
   border-radius: 0px;
   font-size: 1.4em;
-  padding: 1em 0.2em;
+  //padding: 1em 0.2em;
   color: $font-color;
   font-weight: bold;
   &:focus {
