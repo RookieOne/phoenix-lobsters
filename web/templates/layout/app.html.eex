@@ -17,12 +17,12 @@
 
   <body>
     <%= render "header.html", conn: @conn %>
-    <div class="container">
-      <%= render PhoenixLobsters.SharedView, "flash.html", conn: @conn %>
-      <main role="main">
+    <div class="terminal-container">
+      <div class="terminal-screen">
+        <%= render PhoenixLobsters.SharedView, "flash.html", conn: @conn %>
         <%= render @view_module, @view_template, assigns %>
-      </main>
-    </div> <!-- /container -->
+      </div>
+    </div>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

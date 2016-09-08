@@ -1,0 +1,15 @@
+@import "colors";
+
+input[type=submit] {
+  font-size: 1em;
+  color: $orange;
+  border-color: $orange;
+  border-radius: 0px;
+  background: $black;
+  transition: background 0.4s, color 0.4s;
+  &:hover, &:focus, &:active, &:active:focus {
+    background: $highlight-color;
+    color: $black;
+    outline: none;
+  }
+}

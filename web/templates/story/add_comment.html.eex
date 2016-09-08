@@ -1,5 +1,5 @@
 <%= form_for @conn, "/comments", [as: :comment, id: :add_comment_to_story], fn form -> %>
   <%= hidden_input form, :story_id, value: @story.id %>
-  <%= textarea form, :content, class: "form-control" %>
+  <%= textarea form, :content %>
   <%= submit "Comment", class: "btn btn-default" %>
 <% end %>
